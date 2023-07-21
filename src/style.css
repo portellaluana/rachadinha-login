@@ -1,0 +1,256 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap");
+
+body {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  font-family: "Montserrat", sans-serif;
+}
+
+:root {
+  --green-brand: #3c8533;
+  --green-brand-dark: #2f6a28;
+  --green-brand-dark-super: #24501f;
+
+  --yellow-brand: #ffa300;
+  --yellow-brand-dark: #f18000;
+
+  --gray-dark: #333333;
+  --gray-off: #a3a3a3;
+  --gray-light: #f7f7f7;
+}
+
+/* ______________________GENERAL______________________ */
+
+p {
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--gray-dark);
+  text-align: center;
+  margin-top: 4px;
+}
+
+.btn-primary,
+.btn-text,
+.btn-disabled {
+  width: 264px;
+  height: 48px;
+  font-size: 12px;
+  font-weight: 600;
+  margin-bottom: 16px;
+  cursor: pointer;
+}
+
+.btn-primary-mini,
+.btn-text-mini,
+.btn-disabled-mini {
+  width: 122px;
+  height: 28px;
+  font-size: 12px;
+  font-weight: 600;
+  margin: 16px 0;
+  cursor: pointer;
+}
+
+.btn-primary, .btn-primary-mini {
+  background-color: var(--green-brand);
+  border: none;
+  border-radius: 50px;
+  color: white;
+}
+
+.btn-text, .btn-text-mini {
+  background-color: transparent;
+  border: none;
+  color: var(--gray-dark);
+}
+
+.btn-disabled, .btn-disabled-mini {
+  background-color: var(--gray-light);
+  border: none;
+  border-radius: 50px;
+  color: var(--gray-off);
+}
+
+
+.btn-google{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0;
+}
+
+.btn-forgot-password{
+  background-color: transparent;
+  border: none;
+  font-size: 12px;
+  margin: 8px 0 32px 0;
+  color: var(--gray-off);
+  text-align: right;
+  padding: 0 9.5px;
+}
+
+.btn-register{
+  color: var(--green-brand);
+  cursor: pointer;
+}
+
+a:-webkit-any-link {
+  text-decoration: none;
+}
+
+/* ______________________VIEWPOINT______________________ */
+
+.viewpoint-container {
+  background-color: var(--green-brand);
+  width: 100vw;
+  height: 100vh;
+}
+
+.viewpoint-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.viewpoint-content img {
+  width: 48%;
+}
+
+/* ______________________BACKGROUND-ĹOGIN______________________ */
+
+.background-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.background-img {
+  max-width: 280.26px;
+}
+
+.background-content-img {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: flex-end;
+}
+/* ______________________WELCOME______________________ */
+
+.welcome-content {
+  display: flex;
+  flex-direction: column;
+}
+
+
+
+.welcome-icon {
+  width: 50px;
+  display: flex;
+  margin: 60px auto 16px auto;
+}
+
+.welcome-content h4 {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--gray-dark);
+  text-align: center;
+  margin: 0;
+}
+
+
+
+.content-info{
+  margin: 0 auto;
+}
+
+/* ______________________LOGIN______________________ */
+
+
+.login-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #e6e6e6;
+  width: 100vw;
+  height: 100vh;
+}
+
+.modal-login, .modal-new-user{
+  display: none;
+}
+
+.modal-login-container, .modal-new-user-container{
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-login-container-active, .modal-new-user-container-active{
+  width: 328px;
+  height: 320px;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  z-index: 2;
+  background-color: white;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.modal-login-content, .modal-new-user-content{
+  display: flex;
+  flex-direction: column;
+  width: 264px;
+}
+
+.modal-login-content input, .modal-new-user-content input{
+  margin: 32px auto 0 auto;
+  width: 244px;
+  border: none;
+  background-color: transparent;
+  border-bottom: 1px solid var(--gray-off);
+  padding: 0;
+}
+ 
+.hide-password{
+  bottom: 21px;
+  left: 235px;
+  position: relative;
+  cursor: pointer;
+}
+
+input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 30px white inset;
+}
+
+.modal-login-content input::placeholder, .modal-new-user-content input::placeholder{
+ color: var(--gray-off);
+ font-size: 12px;
+}
+
+.modal-login-content input:focus-visible, .modal-new-user-content input:focus-visible{
+outline: 0;
+border-bottom: 1px solid var(--green-brand);
+}
+
+.modal-login-content img, .modal-new-user-content img{
+  width: 18px;
+  margin-right: 8px;
+}
+
+.new-user-btn-container{
+  display: flex;
+}
+
+.marca-rachadinha{
+  position: relative;
+  width: 123px;
+  height: 17px;
+  top: 80px;
+}
