@@ -1,4 +1,5 @@
 import { useContext, useState } from "react";
+import { Link } from "react-router-dom";
 import { AppContext } from "../../context/AppContext";
 import hidePassword from "../../assets/icons/hide-grey.png";
 import showPassword from "../../assets/icons/show-grey.png";
@@ -7,7 +8,10 @@ import rachadinha from "../../assets/rachadinha-logo.svg";
 export const ModalNewUser = () => {
   const [hide, setHide] = useState(false);
 
-  const { modalVisible, user, setUser, inputType, setInputType } =
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  const { modalVisible, inputType, setInputType, name, setName } =
     useContext(AppContext);
 
   const onHide = () => {
@@ -16,12 +20,16 @@ export const ModalNewUser = () => {
       setInputType("text");
     } else setInputType("password");
   };
+  const handleName = () => {
+    localStorage.setItem('userName', JSON.stringify(name));
+  };
 
-  const handleUser = (e) => {
-    setUser({
-      ...user,
-      [e.target.name]: e.target.value,
-    });
+  const HandleEmail = (e) => {
+    setEmail(e.target.value);
+  };
+
+  const HandlePassword = (e) => {
+    setPassword(e.target.value);
   };
 
   return (
@@ -35,28 +43,26 @@ export const ModalNewUser = () => {
       <div className="modal-new-user-content">
         <input
           name="name"
-          value={user.name}
-          onChange={handleUser}
           type="text"
           placeholder="nome"
           required
+          value={name}
+          onChange={(e) => setName(e.target.value)}
         />
         <input
           name="email"
-          value={user.email}
-          onChange={handleUser}
           type="email"
           placeholder="email"
           required
+          onChange={HandleEmail}
         />
         <input
           name="password"
-          value={user.password}
-          onChange={handleUser}
           type={inputType}
           placeholder="senha"
           className="input-senha"
           required
+          onChange={HandlePassword}
         />
         {hide ? (
           <img
@@ -75,10 +81,19 @@ export const ModalNewUser = () => {
         )}{" "}
         <div className="new-user-btn-container">
           {" "}
-          {user.name && user.email && user.password ? (
-            <button className="btn-primary-mini">entrar</button>
+          {name && email && password !== "" ? (
+            <Link to="/dashboard">
+              <button
+                className="btn-primary-mini"
+                onClick={() => handleName("userName", name)}
+              >
+                cadastrar
+              </button>
+            </Link>
           ) : (
-            <button className="btn-disabled-mini">entrar</button>
+            <button className="btn-disabled-mini" type="submit">
+              cadastrar
+            </button>
           )}
           <button className="btn-text-mini">voltar</button>
         </div>

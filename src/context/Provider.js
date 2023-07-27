@@ -4,7 +4,8 @@ import { AppContext } from "./AppContext";
 export const Provider = ({ children }) => {
   const [modalVisible, setModalVisible] = useState(false);
   const [time, setTime] = useState(true);
-  const [user, setUser] = useState("");
+  const [name, setName] = useState('')
+
   const [inputType, setInputType] = useState("password");
 
 
@@ -13,8 +14,7 @@ export const Provider = ({ children }) => {
     setModalVisible,
     time,
     setTime,
-    user,
-    setUser,
+    name, setName,
     inputType, setInputType
   };
 

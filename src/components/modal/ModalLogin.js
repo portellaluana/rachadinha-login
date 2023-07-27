@@ -1,14 +1,15 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { AppContext } from "../../context/AppContext";
 import googleIcon from "../../assets/icons/google-icon.png";
 import rachadinha from "../../assets/rachadinha-logo.svg";
 import hidePassword from "../../assets/icons/hide-grey.png";
 import showPassword from "../../assets/icons/show-grey.png";
+import { Link } from "react-router-dom";
 
 export const ModalLogin = () => {
   const [hide, setHide] = useState(false);
 
-  const { modalVisible, user, setUser, inputType, setInputType } =
+  const { modalVisible, setName, inputType, setInputType } =
     useContext(AppContext);
 
   const onHide = () => {
@@ -19,12 +20,9 @@ export const ModalLogin = () => {
     } else setInputType("password");
   };
 
-  const handleUser = (e) => {
-    setUser({
-      ...user,
-      [e.target.name]: e.target.value,
-    });
-  };
+// useEffect(() => {
+// setName(JSON.parse(localStorage.getItem("userName")) || "");
+// },[])
 
   return (
 <div
@@ -37,16 +35,12 @@ export const ModalLogin = () => {
         <div className="modal-login-content">
           <input
             name="email"
-            value={user.email}
-            onChange={handleUser}
             type="email"
             placeholder="email"
             required
           />
           <input
             name="password"
-            value={user.password}
-            onChange={handleUser}
             type={inputType}
             placeholder="senha"
             className="input-senha"
@@ -68,11 +62,13 @@ export const ModalLogin = () => {
             />
           )}{" "}
           <button className="btn-forgot-password">esqueci a senha</button>
-          {user.email && user.password ? (
+          {/* {user.email && user.password ? ( */}
+          <Link to='/dashboard'>
             <button className="btn-primary">entrar</button>
-          ) : (
-            <button className="btn-disabled">entrar</button>
-          )}
+            </Link>
+          {/* ) : ( */}
+            {/* <button className="btn-disabled">entrar</button> */}
+          {/* )} */}
           <button className="btn-text btn-google">
             <img src={googleIcon} alt="google-icon" />
             entrar com Google
